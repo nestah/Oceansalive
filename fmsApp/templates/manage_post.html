@@ -4,10 +4,26 @@
         {% csrf_token %}
         <input type="hidden" name="id" value="{{ post.id }}">
         <input type="hidden" name="user" value="{% if not post %}{{ user.id }}{% else %}{{ post.user.id }}{% endif %}">
-        <div class="form-group mb-3 ">
+        <!-- <div class="form-group mb-3 ">
             <label for="department" class="control-label">Department</label>
             <input type="text" class="form-control rounded-0" id="title" name="department" value="{{ post.department }}" required>
+        </div> -->
+        <div class="form-group mb-3">
+            <label for="department" class="control-label">Department</label>
+            <select class="form-control rounded-0" id="department" name="department" required>
+                <option value="">Select Department</option>
+                 <option value="Programs" {% if post.department == "Programs" %} selected {% endif %}>Programs</option>
+                 <option value="Administration" {% if post.department == "Administration" %} selected {% endif %}>Administration</option>
+                 <option value="Education" {% if post.department == "Education" %} selected {% endif %}>Education</option>
+                 <option value="Human Resource" {% if post.department == "Human Resource" %} selected {% endif %}>Human Resource</option>
+                 <option value="Coral" {% if post.department == "Coral" %} selected {% endif %}>Coral</option>
+                <option value="Communication" {% if post.department == "Communication" %} selected {% endif %}>Communication</option>
+                <option value="Permaculture" {% if post.department == "Permaculture" %} selected {% endif %}>Permaculture</option>
+                
+                <!-- Add more options for other departments -->
+            </select>
         </div>
+        
         <div class="form-group mb-3 ">
             <label for="title" class="control-label">Title</label>
             <input type="text" class="form-control rounded-0" id="title" name="title" value="{{ post.title }}" required>

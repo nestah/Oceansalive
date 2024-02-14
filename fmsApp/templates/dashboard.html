@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Management System</title>
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Custom CSS -->
+  <style>
+        /* Add custom styles here */
+      /* Remove underline decoration from links */
+        a {
+            text-decoration: none !important;
+        }
+       .hi-txt{
+         color: #ffffff;
+       }
+    </style> 
+    <!-- default css -->
+    <link href="{% static 'assets/default/css/dash.css' %}" rel="stylesheet">
+     <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+</head>
+<body>
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+          <h1 class="logo"><a href="https://oceansalive.org">Oceans Alive</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    
+          <nav id="navbar" class="navbar">
+            <ul>
+              <!-- <li><a class="nav-link scrollto active" href="#hero">Home</a></li> -->
+              <!-- <li><a class="nav-link scrollto" href="#about">About</a></li>
+              <li><a class="nav-link scrollto" href="#services">Services</a></li>
+              <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li> -->
+              <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+              <li>
+                <h3 class="hi-txt">Hi,  {{ user.first_name }}</h3>
+             </li>
+              <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+              <li><a class="getstarted scrollto" href="{% url 'logout' %}">Log out</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+    
+        </div>
+      </header><!-- End Header -->
+    <section id="hero" class="d-flex align-items-center">
+
+        <div class="container-fluid" data-aos="fade-up">
+          <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+              <h1>Empower Your Data, Illuminate Your Path</h1>
+              <h2>Streamlining Data Operations for Enhanced Efficiency and Productivity.</h2>
+              <!-- <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div> -->
+              <div><a href="{% url 'FMS-page' %}" class="btn-get-started scrollto">Get Started</a></div>
+            </div>
+            <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
+              <img src="{{ MEDIA_URL }}/default/hero-img.png" class="img-fluid animated" alt="">
+            </div>
+          </div>
+        </div>
+    
+      </section><!-- End Hero -->
+      <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+        <div class="container">
+  
+          <div class="row counters">
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Departments</p>
+            </div>
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-purecounter-start="0" data-purecounter-end="31" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Staff</p>
+            </div>
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-purecounter-start="0" data-purecounter-end="13" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Projects</p>
+            </div>
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Total Uploads</p>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Counts Section -->
+
+   
+    <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js'%}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/main.js' %}"></script>
+</body>
+</html>

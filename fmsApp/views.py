@@ -44,6 +44,19 @@ def logoutuser(request):
 
 @login_required
 def home(request):
+    # context['page_title'] = 'Home'
+    # if request.user.is_superuser:
+        # posts = Post.objects.all()
+    # else:
+        # posts = Post.objects.filter(user = request.user).all()
+    # context['posts'] = posts
+    # context['postsLen'] = posts.count()
+    # departments = Post.objects.values_list('department', flat=True).distinct()  # Fetch unique department names
+    # print(request.build_absolute_uri())
+    return render(request, 'dashboard.html')
+
+@login_required
+def FMS(request):
     context['page_title'] = 'Home'
     if request.user.is_superuser:
         posts = Post.objects.all()
@@ -51,6 +64,7 @@ def home(request):
         posts = Post.objects.filter(user = request.user).all()
     context['posts'] = posts
     context['postsLen'] = posts.count()
+    # departments = Post.objects.values_list('department', flat=True).distinct()  # Fetch unique department names
     print(request.build_absolute_uri())
     return render(request, 'home.html',context)
 

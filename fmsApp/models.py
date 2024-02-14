@@ -9,13 +9,19 @@ import base64, os
 from django.dispatch import receiver
 
 # Create your models here.
+def post_file_path(instance, filename):
+    # Determine folder name based on instance department
+    department_folder = instance.department.replace(' ', '_').lower()  # Convert department name to lowercase and replace spaces with underscores
+    # Return the file path
+    return os.path.join('uploads', department_folder, filename)
+
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     department = models.CharField(max_length=250, default='department')
     title = models.CharField(max_length=250)
     description = models.TextField(blank=True, null=True)
-    file_path = models.FileField(upload_to='uploads/',blank=True, null=True)
+    file_path = models.FileField(upload_to=post_file_path,blank=True, null=True)
     date_created = models.DateTimeField(default=timezone.now)
     date_updated = models.DateTimeField(auto_now=True)
     updated = models.DateTimeField(auto_now=True)

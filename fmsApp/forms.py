@@ -60,7 +60,7 @@ class UpdateProfile(UserChangeForm):
             user = User.objects.exclude(id=self.cleaned_data['id']).get(username = username)
         except Exception as e:
             return username
-        raise forms.ValidationError(f"The {user.username} mail is already exists/taken")
+        raise forms.ValidationError(f"The {user.username} mail already exists/taken")
 
 class UpdatePasswords(PasswordChangeForm):
     old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control form-control-sm rounded-0'}), label="Old Password")
